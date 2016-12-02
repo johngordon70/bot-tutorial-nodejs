@@ -14,25 +14,20 @@ function respond() {
         this.res.writeHead(200);
         postMessage();
         this.res.end();
+    }
         
- else if(request.text && Passthebutter.test(request.text)) {
+    else if (request.text && botregex.Passthebutter(request.text)) {
         this.res.writeHead(200);
         postMessage("*passes butter* \nWhat is my purpose?");
         this.res.end();
     }
-else if(request.text && Youpassbutter.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("...\noh my god");
-    this.res.end();
-} 
-    } else 
-    
-    
-        //*************************************************************************************
 
-  
-    //*************************************************************************************
-    {
+    else if (request.text && botregex.Youpassbutter(request.text)) {
+        this.res.writeHead(200);
+        postMessage("...\noh my god");
+        this.res.end();
+
+    }   else {
         console.log("don't care");
         this.res.writeHead(200);
         this.res.end();
