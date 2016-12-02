@@ -4,72 +4,72 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy$/;
-      botRegex = /^\/vape$/;
-      botRegex = /^\/Pass the butter$/;
-      botRegex = /^\/You pass butter$/;
-      botRegex = /^\/Open the bay doors Hal$/;
-  if(request.text && botRegex.test(request.text)) {
+    var request = JSON.parse(this.req.chunks[0]),
+        botRegex = /^\/cool guy$/;
+    botRegex = /^\/vape$/;
+    botRegex = /^\/Pass the butter$/;
+    botRegex = /^\/You pass butter$/;
+    botRegex = /^\/Open the bay doors Hal$/;
+    if(request.text && botRegex.test(request.text)) {
+        this.res.writeHead(200);
+        postMessage();
+        this.res.end();
+    } else 
+    
+    
+        //*************************************************************************************
+ if(request.text && [Pass /the /butter].test(request.text)) {
+        this.res.writeHead(200);
+        postMessage("[*passes butter* \nWhat is my purpose?]");
+        this.res.end();
+    }
+else if(request.text && [You /pass /butter].test(request.text)) {
     this.res.writeHead(200);
-    postMessage();
+    postMessage("[...\noh my god]");
     this.res.end();
-  } else 
-    
-    
-//*************************************************************************************
-    else if(request.text && [Pass the butter].test(request.text)) {
-this.res.writeHead(200);
-postMessage("[*passes butter* \nWhat is my purpose?]");
-this.res.end();
-}
-      else if(request.text && [You pass butter].test(request.text)) {
-this.res.writeHead(200);
-postMessage("[...\noh my god]");
-this.res.end();
 }
   
-//*************************************************************************************
-  {
-    console.log("don't care");
-    this.res.writeHead(200);
-    this.res.end();
-  }
+    //*************************************************************************************
+    {
+        console.log("don't care");
+        this.res.writeHead(200);
+        this.res.end();
+    }
 }
 
 function postMessage() {
-  var botResponse, options, body, botReq;
+    var botResponse, options, body, botReq;
 
-  botResponse = cool();
+    botResponse = cool();
 
-  options = {
-    hostname: 'api.groupme.com',
-    path: '/v3/bots/post',
-    method: 'POST'
-  };
+    options = {
+        hostname: 'api.groupme.com',
+        path: '/v3/bots/post',
+        method: 'POST'
+    };
 
-  body = {
-    "bot_id" : botID,
-    "text" : botResponse
-  };
+    body = {
+        "bot_id" : botID,
+        "text" : botResponse
+    };
 
-  console.log('sending ' + botResponse + ' to ' + botID);
+    console.log('sending ' + botResponse + ' to ' + botID);
 
-  botReq = HTTPS.request(options, function(res) {
-      if(res.statusCode == 202) {
-        //neat
-      } else {
-        console.log('rejecting bad status code ' + res.statusCode);
-      }
-  });
+    botReq = HTTPS.request(options, function(res) {
+        if(res.statusCode == 202) {
+            //neat
+        } else {
+            console.log('rejecting bad status code ' + res.statusCode);
+        }
+    });
 
-  botReq.on('error', function(err) {
-    console.log('error posting message '  + JSON.stringify(err));
-  });
-  botReq.on('timeout', function(err) {
-    console.log('timeout posting message '  + JSON.stringify(err));
-  });
-  botReq.end(JSON.stringify(body));
+    botReq.on('error', function(err) {
+        console.log('error posting message '  + JSON.stringify(err));
+    });
+    botReq.on('timeout', function(err) {
+        console.log('timeout posting message '  + JSON.stringify(err));
+    });
+    botReq.end(JSON.stringify(body));
 }
 
 
