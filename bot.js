@@ -6,23 +6,23 @@ var botID = process.env.BOT_ID;
 function respond() {
     var request = JSON.parse(this.req.chunks[0]),
     botRegex = /^\/cool guy$/;
-    botRegex = /^\/vape$/;
-    botRegex = /^\/Pass the butter$/;
-    botRegex = /^\/You pass butter$/;
-    botRegex = /^\/Open the bay doors Hal$/;
+    botRegcg = /^\/vape$/;
+    botRegptb = /^\/Pass the butter$/;
+    botRegypb = /^\/You pass butter$/;
+    botRegbay = /^\/Open the bay doors Hal$/;
     if (request.text && botRegex.test(request.text)) {
         this.res.writeHead(200);
         postMessage();
         this.res.end();
     }
 
-    else if (request.text && botRegex.Passthebutter(request.text)) {
+    else if (request.text && botRegptb.Passthebutter(request.text)) {
         this.res.writeHead(200);
         postMessage("*passes butter* \nWhat is my purpose?");
         this.res.end();
     }
 
-    else if (request.text && botRegex.Youpassbutter(request.text)) {
+    else if (request.text && botRegypb.Youpassbutter(request.text)) {
         this.res.writeHead(200);
         postMessage("...\noh my god");
         this.res.end();
