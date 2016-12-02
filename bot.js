@@ -15,7 +15,7 @@ function respond() {
     }
     else if (request.text && botRegts.test(request.text)) {
         this.res.writeHead(200);
-        postMessage("Test Successful");
+        postMessage == "Test Successful";
         this.res.end();
     }
 
@@ -29,7 +29,7 @@ function respond() {
 function postMessage() {
     var botResponse, options, body, botReq;
 
-    botResponse = postMessage();
+    botResponse = cool();
 
     options = {
         hostname: 'api.groupme.com',
