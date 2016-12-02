@@ -14,8 +14,8 @@ function respond() {
         this.res.writeHead(200);
         postMessage();
         this.res.end();
-    }
 
+    }
     else if (request.text && botRegptb.Passthebutter(request.text)) {
         this.res.writeHead(200);
         postMessage("*passes butter* \nWhat is my purpose?");
@@ -27,7 +27,9 @@ function respond() {
         postMessage("...\noh my god");
         this.res.end();
 
-    } else {
+    }
+
+    else {
         console.log("don't care");
         this.res.writeHead(200);
         this.res.end();
