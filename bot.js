@@ -14,20 +14,22 @@ function respond() {
         this.res.writeHead(200);
         postMessage();
         this.res.end();
+        
+ else if(request.text && Passthebutter.test(request.text)) {
+        this.res.writeHead(200);
+        postMessage("*passes butter* \nWhat is my purpose?");
+        this.res.end();
+    }
+else if(request.text && Youpassbutter.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("...\noh my god");
+    this.res.end();
+} 
     } else 
     
     
         //*************************************************************************************
- if(request.text && [Pass /the /butter].test(request.text)) {
-        this.res.writeHead(200);
-        postMessage("[*passes butter* \nWhat is my purpose?]");
-        this.res.end();
-    }
-else if(request.text && [You /pass /butter].test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("[...\noh my god]");
-    this.res.end();
-}
+
   
     //*************************************************************************************
     {
